@@ -1,31 +1,72 @@
 import React, {useState, useEffect} from 'react';
-import randomcolor from "randomcolor"
 import './App.css';
+import SearchForm from "./SearchForm";
+import BreweryCard from "./BreweryCard";
 
 function App() {
-  const [ value, setValue ] = useState("Testing") 
-    //- array of variable and function - convention is to name function for setting the variable - similar to useState()
-    // - argument of useState is the initial state of the variable
-  const [color, setColor] = useState("")
-  console.log(color)
+  const [names, setNames] = useState([]);
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [phone, setPhone] = useState("");
+  const [website, setWebsite] = useState("");
 
+  // useEffect( async () =>{
+  //   const data = await fetch("https://api.openbrewerydb.org/breweries").then(response => response.json());
+  //   console.log(data)
+  // }, [])
 
-  useEffect(()=>{
-    setColor(randomcolor())
-  }, []) //empty array as second argument only runs when components mounts aka componentDidMount()
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const data = await fetch("https://api.openbrewerydb.org/breweries").then(response => response.json());
+  //     const names = [];
+  //     console.log(data)
+  //     for(let i = 0; i < data.length; i++){
+  //       setName(() => data[i].name)
+  //       console.log(name)
+  //     }
+  //     // setName(() => data[0].name)
+  //     //   console.log(name)
+      
+  //   }
+  //   fetchData();
+  // }, [])
 
-  useEffect(()=>{
-    setColor(randomcolor())
-  }, [value]) //second argument array value(s) are the variables it looks for change to run aka componentDidUpdate
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetch("https://api.openbrewerydb.org/breweries").then(response => response.json());
+      const places = [];
+      console.log(data)
+      for(let i = 0; i < data.length; i++){
+      
+          places.push(data[i].name)
+          setNames([...names, places])
+      
+      
+      // setName(() => data[0].name)
+      //   console.log(name)
+      
+      }
+      console.log(places)
+    }
+    fetchData();
+  }, [])
+
+//  function generateCard(){
+//    let card = ""
+//    for(let i = 0; i < names.length; i++){
+//     card = <BreweryCard name={names[i]}/>
+//    }
+//    return card
+//  }
+
+  
 
   return (
-    <div className="App">
-      <h1 style={{color: color}}>{value}</h1>
-      <button className="btn btn-danger" onClick={()=>setValue("Test Complete")
-      }>Change</button>
-      <button className = "btn btn-primary" onClick={()=>setValue("Testing")}>Change Back</button>
+    <div className="container-fluid">
+      <SearchForm/>
+      <BreweryCard name={names}/>
     </div>
-  );
+  )
 }
 
 export default App;
