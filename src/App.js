@@ -11,23 +11,28 @@ function App() {
     async function fetchData() {
       const data = await fetch("https://api.openbrewerydb.org/breweries").then(response => response.json());
       //const places = [];
-      for(const brewery of data){
-        console.log(brewery)
-        setBreweries([...breweries, brewery]);
-      }
+      // for(const brewery of data){
+      //   console.log(brewery)
+      //   setBreweries([...breweries, brewery]);
+      // }
+      setBreweries(data)
       
-      console.log(breweries)
       
     }
     fetchData();
   }, [])
 
+  console.log(breweries)
   
 
   return (
     <div className="container-fluid">
       <SearchForm/>
-      <BreweryCard breweries={breweries}/>
+      <div className="row justify-content-around">
+        
+          {breweries.map(b => <BreweryCard key={b.id} breweries={b}/>)}
+        
+      </div>
     </div>
   )
 }
