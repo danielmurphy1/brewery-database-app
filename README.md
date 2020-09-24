@@ -15,7 +15,7 @@ ___
 Either search by Brewery Name (or Partial Name) by typing into the field and click the button to search by name OR select a state to view breweries in that state. Currently, this App only returns the first 20 brewies that match the search query.
 
 
-Access the app [here](https://pacific-fjord-04187.herokuapp.com/)
+Access the app [here](https://mighty-stream-27218.herokuapp.com/)
 
 ![BreweryApp Screenshot](https://github.com/danielmurphy1/brewery-database-app/blob/master/BrewAppScreen.jpg)
 
