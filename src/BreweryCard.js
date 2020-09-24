@@ -1,10 +1,7 @@
 import React from "react";
 
 function BreweryCard(props){
-    //console.log(props)
-    //console.log(props.breweries)
-    //console.log(props.breweries)
-    
+
     return(
         
             

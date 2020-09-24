@@ -16,12 +16,10 @@ function App() {
     fetchData();
   }, [])
 
-  //console.log(breweries)
+  
   
   function searchBreweryName(e){
     e.preventDefault();
-    console.log(breweryName)
-    //debugger;
     async function fetchData(){
       const data = await fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}`).then(response =>response.json());
       setBreweries(data);
@@ -32,7 +30,6 @@ function App() {
 
   function searchBreweryState(e){
     e.preventDefault();
-    console.log(breweryState);
     async function fetchData(){
       const data = await fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}`).then(response =>response.json());
       setBreweries(data);
@@ -43,13 +40,11 @@ function App() {
   
 
   function handleNameChange(e){
-    console.log(breweryName)
     setBreweryName(e.target.value);
   }
 
   function handleStateChange(e){
     setBreweryState(e.target.value);
-    console.log(breweryState);
   }
 
   return (
