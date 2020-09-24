@@ -11,12 +11,13 @@ function SearchForm (props){
                         </div>
                         <button className="btn btn-primary">Search by Name</button>
                     </form>
-                    <form className="mx-auto" style={{maxWidth: 600}}>
+                    <form className="mx-auto" style={{maxWidth: 600}} onSubmit={props.searchBreweryState}>
                     <div className="form-group">
                             <label className="form-label"> Search by State: </label>
-                            <select className="form-control">
+                            <select className="form-control" value={props.breweryState} onChange={props.handleStateChange}>
                                 <option value="">Select State</option>
                                 <option value="California">California</option>
+                                <option value="Hawaii">Hawaii</option>
                                 <option value="Illinois">Illinois</option>
                                 <option value="Ohio">Ohio</option>
                                 <option value="Texas">Texas</option>
@@ -24,7 +25,6 @@ function SearchForm (props){
                         </div> 
                         <button className="btn btn-primary">Search by State</button>
                     </form> 
-                    
                 </div>
 
     )

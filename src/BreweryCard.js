@@ -13,7 +13,7 @@ function BreweryCard(props){
                         <div className="card-title h5">{props.breweries.name}</div>
                         <p className="card-text">Located in <b>{props.breweries.city}, {props.breweries.state}</b></p>
                         <p>Phone: <b>{props.breweries.phone}</b> </p>
-                        <a href={props.breweries.website} className="btn btn-primary">Visit Site</a>
+                        <a href={props.breweries.website_url} className="btn btn-primary">Visit Site</a>
                     </div>
                 </div>
             
