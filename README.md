@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# JavaScript Brewery API Search App Using React
 
-## Available Scripts
+_Web Based Brewry API Search Application Using React and Bootstrap4_
 
-In the project directory, you can run:
+## Instructions
 
-### `npm start`
+To Download and Run Locally
+___
+1. Clone Code Locally from GitHub
+2. Run "npm i" in terminal to install packages and dependencies
+3. Run "npm run start" in terminal to start application locally. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To Use Locally or Accessing at Below Link
+___
+Either search by Brewery Name (or Partial Name) by typing into the field and click the button to search by name OR select a state to view breweries in that state. Currently, this App only returns the first 20 brewies that match the search query.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+Access the app [here](https://pacific-fjord-04187.herokuapp.com/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![BreweryApp Screenshot](https://github.com/danielmurphy1/brewery-database-app/blob/master/BrewAppScreen.jpg)
 
-### `npm run build`
+### Summary
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is the third application that I have built to get more experience with React. In creating this application, I became even more experienced with React state and props. Unlike my previous two applications where I used Class Based Components to hold state, I wanted to challenge myself to learn to use Hooks so that I would be able to hold state using all Functional Based Components. I found this process to be challenging at times, but in the end, it was quite fulfilling knowing that I was able to do so. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+In addition, this is the first application that I have used in React where I consumed an API (the API used for this application is Open Brewery DB located [here](https://www.openbrewerydb.org/)). I used the documents to learn how to call the specific data from the API that I needed to display for my app, and I used PostMan to view the JSON endpoints that I would need to fetch in order to have the data appear in my application. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Lastly, I used Bootstrap 4 for the styling, gaining more experience using that library. 
 
-### `npm run eject`
+### Author
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Dan Murphy - Software Developer
