@@ -3,6 +3,11 @@ import './App.css';
 import SearchForm from "./SearchForm";
 import BreweryCard from "./BreweryCard";
 
+//useEffect with page dependecy fixes page state issue
+//add zipcode search
+//add functionality to disable next and previous buttons when applicable
+//add "more info" button card to display more info modal
+
 function App() {
   const [breweries, setBreweries] = useState([]);
   const [breweryName, setBreweryName] = useState("");
@@ -119,13 +124,7 @@ function App() {
   }
 
 
-  //psuedocode for pagination
-  /* 
-  -create buttons in Form
-  -create page state in App
-  -write functions for increasing and decreasing page
-  -write useEffect() that fetches relevant data when page is changed - second argument of useEfect is [page]
-   */
+  
 
   return (
     <div className="container-fluid">
