@@ -12,7 +12,7 @@ ___
 
 To Use Locally or Accessing at Below Link
 ___
-Either search by Brewery Name (or Partial Name) by typing into the field and click the button to search by name OR select a state to view breweries in that state. 
+Either search by Brewery Name (or Partial Name) by typing into the field and clicking the button to search by name, by City Name by typing into the field and clicking the cutton to serach by city, OR select a state to view breweries in that state. 
 
 
 Access the app [here](https://mighty-stream-27218.herokuapp.com/)

@@ -11,6 +11,13 @@ function SearchForm (props){
                         </div>
                         <button className="btn btn-primary">Search by Name</button>
                     </form>
+                    <form className="mx-auto" style={{maxWidth: 600}} onSubmit={props.searchCityName}>
+                        <div className="form-group">
+                            <label className="form-label"> Search by City: </label>
+                            <input type="text" className="form-control" value={props.breweryCity} onChange={props.handleCityChange}></input>    
+                        </div>
+                        <button className="btn btn-primary">Search by City</button>
+                    </form>
                     <form className="mx-auto" style={{maxWidth: 600}} onSubmit={props.searchBreweryState}>
                     <div className="form-group">
                             <label className="form-label"> Search by State: </label>

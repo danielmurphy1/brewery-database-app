@@ -3,14 +3,11 @@ import './App.css';
 import SearchForm from "./Components/SearchForm";
 import BreweryCard from "./Components/BreweryCard";
 
-//additional functionality for the future
-//add city search
-//add "more info" button card to display more info modal
-
 function App() {
   const [breweries, setBreweries] = useState([]);
   const [breweryName, setBreweryName] = useState("");
   const [breweryState, setBreweryState] = useState("");
+  const [breweryCity, setBreweryCity] = useState("");
   const [page, setPage] = useState(1);
   const [searchCondition, setSearchCondition] = useState("default"); 
 
@@ -41,6 +38,12 @@ function App() {
         setBreweries(data);
       }
       fetchData();
+    } else if (searchCondition ==="city"){
+      async function fetchData(){
+        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_city=${breweryCity}&page=${page}`).then(response =>response.json());
+        setBreweries(data);
+      }
+      fetchData();
     }
   }, [page])
 
@@ -64,7 +67,17 @@ function App() {
       setPage(1);
     }
     fetchData();
-    console.log(breweryState)
+  }
+
+  function searchCityName(e){
+    e.preventDefault();
+    async function fetchData(){
+      const data = await fetch(`https://api.openbrewerydb.org/breweries?by_city=${breweryCity}&page=${page}`).then(response =>response.json());
+      setBreweries(data);
+      setSearchCondition("city");
+      setPage(1);
+    }
+    fetchData();
   }
   
   function handleNameChange(e){
@@ -73,6 +86,10 @@ function App() {
 
   function handleStateChange(e){
     setBreweryState(e.target.value);
+  }
+
+  function handleCityChange(e){
+    setBreweryCity(e.target.value);
   }
 
   function increasePage(){
@@ -96,6 +113,9 @@ function App() {
         decreasePage={decreasePage}
         breweries={breweries}
         page={page}
+        handleCityChange={handleCityChange}
+        breweryCity={breweryCity}
+        searchCityName={searchCityName}
         />
       <div className="row justify-content-around">
           {breweries.map(b => <BreweryCard key={b.id} breweries={b}/>)}
