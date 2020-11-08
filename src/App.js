@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import SearchForm from "./SearchForm";
-import BreweryCard from "./BreweryCard";
+import SearchForm from "./Components/SearchForm";
+import BreweryCard from "./Components/BreweryCard";
 
-//useEffect with page dependecy fixes page state issue
-//add zipcode search
-//add functionality to disable next and previous buttons when applicable
+//additional functionality for the future
+//add city search
 //add "more info" button card to display more info modal
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
     async function fetchData() {
       const data = await fetch(`https://api.openbrewerydb.org/breweries?page=${page}`).then(response => response.json());
       setBreweries(data);
-      console.log(page)
     }
     fetchData();
   }, [])
@@ -51,7 +49,6 @@ function App() {
     async function fetchData(){
       const data = await fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}&page=${page}`).then(response =>response.json());
       setBreweries(data);
-      //setBreweryName("");
       setSearchCondition("name");
       setPage(1);
     }
@@ -63,7 +60,6 @@ function App() {
     async function fetchData(){
       const data = await fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}&page=${page}`).then(response =>response.json());
       setBreweries(data);
-      //setBreweryState("");
       setSearchCondition("state");
       setPage(1);
     }
@@ -73,20 +69,14 @@ function App() {
   
   function handleNameChange(e){
     setBreweryName(e.target.value);
-    // setPage(1);
   }
 
   function handleStateChange(e){
     setBreweryState(e.target.value);
-    //setPage(1);
   }
 
   function increasePage(){
     setPage(prevPage => prevPage + 1);
-    console.log(breweryState)
-    console.log(page)
-    console.log(searchCondition)
-    
   }
 
   function decreasePage(){
@@ -104,6 +94,8 @@ function App() {
         handleStateChange={handleStateChange}
         increasePage={increasePage}
         decreasePage={decreasePage}
+        breweries={breweries}
+        page={page}
         />
       <div className="row justify-content-around">
           {breweries.map(b => <BreweryCard key={b.id} breweries={b}/>)}

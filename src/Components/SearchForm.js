@@ -70,8 +70,12 @@ function SearchForm (props){
                         </div> 
                         <button className="btn btn-primary">Search by State</button>
                     </form>
-                    <button className="btn btn-outline-primary" onClick={props.decreasePage}>Previous</button> 
-                    <button className="btn btn-outline-primary" onClick={props.increasePage}>Next</button> 
+                    {props.page === 1 ? 
+                        <button className="btn btn-outline-primary" onClick={props.decreasePage} disabled>Previous</button> : 
+                        <button className="btn btn-outline-primary" onClick={props.decreasePage}>Previous</button>}
+                    {props.breweries.length < 20 ? 
+                        <button className="btn btn-outline-primary" onClick={props.increasePage} disabled>Next</button> : 
+                        <button className="btn btn-outline-primary" onClick={props.increasePage}>Next</button>} 
                 </div>
 
     )

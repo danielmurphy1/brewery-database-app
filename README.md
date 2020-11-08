@@ -12,7 +12,7 @@ ___
 
 To Use Locally or Accessing at Below Link
 ___
-Either search by Brewery Name (or Partial Name) by typing into the field and click the button to search by name OR select a state to view breweries in that state. Currently, this App only returns the first 20 brewies that match the search query.
+Either search by Brewery Name (or Partial Name) by typing into the field and click the button to search by name OR select a state to view breweries in that state. 
 
 
 Access the app [here](https://mighty-stream-27218.herokuapp.com/)
@@ -26,6 +26,8 @@ This is the third application that I have built to get more experience with Reac
 In addition, this is the first application that I have used in React where I consumed an API (the API used for this application is Open Brewery DB located [here](https://www.openbrewerydb.org/)). I used the documents to learn how to call the specific data from the API that I needed to display for my app, and I used PostMan to view the JSON endpoints that I would need to fetch in order to have the data appear in my application. 
 
 Lastly, I used Bootstrap 4 for the styling, gaining more experience using that library. 
+
+Update: I added pagination functionality for brewery cards that populate, and a conditional render for brewery phone numbers that are not in the API. 
 
 ### Author
 
