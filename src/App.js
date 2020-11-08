@@ -24,6 +24,28 @@ function App() {
     fetchData();
   }, [])
 
+  useEffect(() => {
+    if(searchCondition === "default"){
+      async function fetchData() {
+        const data = await fetch(`https://api.openbrewerydb.org/breweries?page=${page}`).then(response => response.json());
+        setBreweries(data);
+      }
+      fetchData();
+    } else if (searchCondition === "name"){
+      async function fetchData(){
+        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}&page=${page}`).then(response =>response.json());
+        setBreweries(data);
+      }
+      fetchData();
+    } else if (searchCondition ==="state"){
+      async function fetchData(){
+        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}&page=${page}`).then(response =>response.json());
+        setBreweries(data);
+      }
+      fetchData();
+    }
+  }, [page])
+
   function searchBreweryName(e){
     e.preventDefault();
     async function fetchData(){
@@ -49,7 +71,6 @@ function App() {
     console.log(breweryState)
   }
   
-
   function handleNameChange(e){
     setBreweryName(e.target.value);
     // setPage(1);
@@ -65,66 +86,12 @@ function App() {
     console.log(breweryState)
     console.log(page)
     console.log(searchCondition)
-
-    if(searchCondition === "default"){
-     
-      async function fetchData() {
-       
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?page=${page}`).then(response => response.json());
-        setBreweries(data);
-      
-      }
-      fetchData();
-    } else if (searchCondition === "name"){
-      async function fetchData(){
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}&page=${page}`).then(response =>response.json());
-        setBreweries(data);
-        
-      }
-      fetchData();
-    } else if (searchCondition ==="state"){
-      async function fetchData(){
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}&page=${page}`).then(response =>response.json());
-        setBreweries(data);
-        
-      }
-      fetchData();
-    }
     
   }
 
   function decreasePage(){
-    setPage(prevPage => prevPage - 1);
-    console.log(page)
-    if(searchCondition === "default"){
-     
-      async function fetchData() {
-        
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?page=${page}`).then(response => response.json());
-        setBreweries(data);
-        
-      }
-      fetchData();
-    } else if (searchCondition === "name"){
-      async function fetchData(){
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}&page=${page}`).then(response =>response.json());
-        setBreweries(data);
-     
-      }
-      fetchData();
-    } else if (searchCondition ==="state"){
-      async function fetchData(){
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}&page=${page}`).then(response =>response.json());
-        setBreweries(data);
-        
-      }
-      fetchData();
-    }
-    
+    setPage(prevPage => prevPage - 1); 
   }
-
-
-  
 
   return (
     <div className="container-fluid">
@@ -139,7 +106,6 @@ function App() {
         decreasePage={decreasePage}
         />
       <div className="row justify-content-around">
-        <div>{page}</div>
           {breweries.map(b => <BreweryCard key={b.id} breweries={b}/>)}
         
       </div>
