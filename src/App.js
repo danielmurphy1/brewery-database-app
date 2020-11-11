@@ -9,75 +9,54 @@ function App() {
   const [breweryState, setBreweryState] = useState("");
   const [breweryCity, setBreweryCity] = useState("");
   const [page, setPage] = useState(1);
-  const [searchCondition, setSearchCondition] = useState("default"); 
+  const [searchCondition, setSearchCondition] = useState({}); 
 
-  useEffect(() => {
-    async function fetchData() {
-      const data = await fetch(`https://api.openbrewerydb.org/breweries?page=${page}`).then(response => response.json());
-      setBreweries(data);
-    }
-    fetchData();
-  }, [])
-
-  useEffect(() => {
-    if(searchCondition === "default"){
-      async function fetchData() {
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?page=${page}`).then(response => response.json());
-        setBreweries(data);
-      }
-      fetchData();
-    } else if (searchCondition === "name"){
-      async function fetchData(){
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}&page=${page}`).then(response =>response.json());
-        setBreweries(data);
-      }
-      fetchData();
-    } else if (searchCondition ==="state"){
-      async function fetchData(){
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}&page=${page}`).then(response =>response.json());
-        setBreweries(data);
-      }
-      fetchData();
-    } else if (searchCondition ==="city"){
-      async function fetchData(){
-        const data = await fetch(`https://api.openbrewerydb.org/breweries?by_city=${breweryCity}&page=${page}`).then(response =>response.json());
-        setBreweries(data);
-      }
-      fetchData();
-    }
+useEffect(() => {
+    fetch(`https://api.openbrewerydb.org/breweries?page=${page}`)
+    .then(response => response.json())
+    .then(breweries => setBreweries(breweries));
   }, [page])
+
+useEffect(() => {
+  if (searchCondition.type === "name"){
+    fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}&page=${page}`)
+    .then(response =>response.json())
+    .then(breweries =>setBreweries(breweries));
+  } 
+}, [page, searchCondition])
+
+useEffect(() => {
+  if (searchCondition.type === "state"){
+    fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}&page=${page}`)
+    .then(response =>response.json())
+    .then(breweries =>setBreweries(breweries));
+  } 
+}, [page, searchCondition])
+
+  useEffect(() => {
+    if (searchCondition.type ==="city"){
+      fetch(`https://api.openbrewerydb.org/breweries?by_city=${breweryCity}&page=${page}`)
+      .then(response =>response.json())
+      .then(breweries => setBreweries(breweries));
+      }
+  }, [page, searchCondition])
 
   function searchBreweryName(e){
     e.preventDefault();
-    async function fetchData(){
-      const data = await fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}&page=${page}`).then(response =>response.json());
-      setBreweries(data);
-      setSearchCondition("name");
-      setPage(1);
+    setSearchCondition({type: "name", breweryName});
+    setPage(1);
     }
-    fetchData();
-  }
 
   function searchBreweryState(e){
     e.preventDefault();
-    async function fetchData(){
-      const data = await fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}&page=${page}`).then(response =>response.json());
-      setBreweries(data);
-      setSearchCondition("state");
-      setPage(1);
-    }
-    fetchData();
+    setSearchCondition({type: "state", breweryState});
+    setPage(1);
   }
 
   function searchCityName(e){
     e.preventDefault();
-    async function fetchData(){
-      const data = await fetch(`https://api.openbrewerydb.org/breweries?by_city=${breweryCity}&page=${page}`).then(response =>response.json());
-      setBreweries(data);
-      setSearchCondition("city");
-      setPage(1);
-    }
-    fetchData();
+    setSearchCondition({type: "city", breweryCity});
+    setPage(1);
   }
   
   function handleNameChange(e){
