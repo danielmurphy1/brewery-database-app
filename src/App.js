@@ -9,9 +9,10 @@ function App() {
   const [breweryState, setBreweryState] = useState("");
   const [breweryCity, setBreweryCity] = useState("");
   const [page, setPage] = useState(1);
-  const [searchCondition, setSearchCondition] = useState({}); 
+  const [searchCondition, setSearchCondition] = useState({type: "initialRender"}); 
 
 useEffect(() => {
+    if (searchCondition.type === "initialRender")
     fetch(`https://api.openbrewerydb.org/breweries?page=${page}`)
     .then(response => response.json())
     .then(breweries => setBreweries(breweries));
