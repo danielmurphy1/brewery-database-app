@@ -27,7 +27,7 @@ In addition, this is the first application that I have used in React where I con
 
 Lastly, I used Bootstrap 4 for the styling, gaining more experience using that library. 
 
-Update: I added pagination functionality for brewery cards that populate, and a conditional render for brewery phone numbers that are not in the API. 
+Update: I added pagination functionality for brewery cards that populate, and a conditional render for brewery phone numbers that are not in the API. In addition to searching by state and brewery name, users can now search by city. 
 
 ### Author
 
