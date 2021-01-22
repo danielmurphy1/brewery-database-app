@@ -2,23 +2,23 @@
 
 _Web Based Brewery API Search Application Using React and Bootstrap4_
 
+
+![BreweryApp Screenshot](https://github.com/danielmurphy1/brewery-database-app/blob/master/BrewAppScreen.jpg)
 ## Instructions
 
 To Download and Run Locally
-___
+
 1. Clone Code Locally from GitHub
 2. CD into project directory
 3. Run "npm iintall" (or "npm i") in terminal to install packages and dependencies
 4. Run "npm run start" in terminal to start application locally 
 
 To Use Locally or Accessing at Below Link
-___
+
 The user can either search by Brewery Name (or Partial Name) or city name by typing one or the other into the appropriate field and clicking on the associated button, or the user can search for breweries by state using the drop-down menu and click the associated state. 
 
 
 Access the app [here](https://mighty-stream-27218.herokuapp.com/)
-
-![BreweryApp Screenshot](https://github.com/danielmurphy1/brewery-database-app/blob/master/BrewAppScreen.jpg)
 
 ### Summary
 
