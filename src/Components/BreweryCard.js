@@ -3,7 +3,7 @@ import React from "react";
 function BreweryCard(props){
 
     const defaultPhone = () =>{
-        return props.breweries.phone.length < 1 ?  "Not Listed" : props.breweries.phone
+        return props.breweries.phone === null ?  "Not Listed" : props.breweries.phone
     }
 
     return(
