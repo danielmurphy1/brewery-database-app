@@ -10,7 +10,7 @@ To Download and Run Locally
 
 1. Clone Code Locally from GitHub
 2. CD into project directory
-3. Run "npm iintall" (or "npm i") in terminal to install packages and dependencies
+3. Run "npm install" (or "npm i") in terminal to install packages and dependencies
 4. Run "npm run start" in terminal to start application locally 
 
 To Use Locally or Accessing at Below Link
