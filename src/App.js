@@ -13,14 +13,14 @@ function App() {
 
 useEffect(() => {
     if (searchCondition.type === "initialRender")
-    fetch(`https://api.openbrewerydb.org/breweries?page=${page}`)
+    fetch(`https://api.openbrewerydb.org/v1/breweries?page=${page}`)
     .then(response => response.json())
     .then(breweries => setBreweries(breweries));
   }, [page])
 
 useEffect(() => {
   if (searchCondition.type === "name"){
-    fetch(`https://api.openbrewerydb.org/breweries?by_name=${breweryName}&page=${page}`)
+    fetch(`https://api.openbrewerydb.org/v1/breweries?by_name=${breweryName}&page=${page}`)
     .then(response =>response.json())
     .then(breweries =>setBreweries(breweries));
   } 
@@ -28,7 +28,7 @@ useEffect(() => {
 
 useEffect(() => {
   if (searchCondition.type === "state"){
-    fetch(`https://api.openbrewerydb.org/breweries?by_state=${breweryState}&page=${page}`)
+    fetch(`https://api.openbrewerydb.org/v1/breweries?by_state=${breweryState}&page=${page}`)
     .then(response =>response.json())
     .then(breweries =>setBreweries(breweries));
   } 
@@ -36,7 +36,7 @@ useEffect(() => {
 
   useEffect(() => {
     if (searchCondition.type ==="city"){
-      fetch(`https://api.openbrewerydb.org/breweries?by_city=${breweryCity}&page=${page}`)
+      fetch(`https://api.openbrewerydb.org/v1/breweries?by_city=${breweryCity}&page=${page}`)
       .then(response =>response.json())
       .then(breweries => setBreweries(breweries));
       }
