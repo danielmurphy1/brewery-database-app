@@ -18,7 +18,7 @@ To Use Locally or Accessing at Below Link
 The user can either search by Brewery Name (or Partial Name) or city name by typing one or the other into the appropriate field and clicking on the associated button, or the user can search for breweries by state using the drop-down menu and click the associated state. 
 
 
-Access the app [here](https://mighty-stream-27218.herokuapp.com/)
+Access the app [here](https://brewery-database-app.onrender.com/)
 
 ### Summary
 
